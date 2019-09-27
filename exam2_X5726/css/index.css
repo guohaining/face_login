@@ -1,0 +1,321 @@
+html, body {
+    height: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* 动画部分 */
+@keyframes scan-move {
+    0% {height: 0;}
+    35% {height: 120px; bottom: 0;}
+    100% {bottom: 330px;}
+}
+
+@keyframes scan-bar-hide {
+    0% {height: 100%;}
+    100% {height: 0;}
+}
+
+@keyframes result-bar-show {
+    0% {height: 0;}
+    100% {height: 100%;}
+}
+
+@keyframes similar-show {
+    0% {opacity: 0;}
+    100% {opacity: 1; transform: rotate(360deg)}
+}
+
+@keyframes middle-bar-show {
+    0% {margin-top: -50%;}
+    100% {margin-top: 8%;}
+}
+
+@keyframes img-title-show {
+    0% {width: 0; opacity: 0;}
+    100% { width: 206px; opacity: 1;}
+}
+
+@keyframes left-photo-show {
+    0% {left: -200%;}
+    100% {left: 0;}
+}
+
+@keyframes right-photo-show {
+    0% {right: -200%;}
+    100% {right: 0;}
+}
+
+@keyframes bottom-bar-show {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes left-arrow-animate {
+    0% {left: 0;}
+    100% {left: 50px;}
+}
+
+@keyframes right-arrow-animate {
+    0% {right: 0;}
+    100% {right: 50px;}
+}
+
+@keyframes vs-rotate {
+    0% {transform: rotateY(0deg)}
+    100% {transform: rotateY(360deg)}
+}
+
+@keyframes success-animate {
+    0% {width: 0;}
+    100% {width: 766px;}
+}
+
+@keyframes photo-scale {
+    0% {transform: scale(1.0)}
+    100% {transform: scale(0.3)}
+}
+
+.success-animate {
+    animation: success-animate 2s 10s ease infinite forwards;
+}
+
+.vs-rotate-animate {
+    animation: vs-rotate 2s 10s ease infinite;
+}
+
+.left-arrow-animate {
+    animation: left-arrow-animate 1s 10s ease-in-out infinite;
+}
+
+.right-arrow-animate {
+    animation: right-arrow-animate 1s 10s ease-in-out infinite;
+}
+
+.scan-img-animate {
+    animation: scan-move 1.8s linear infinite; 
+}
+
+.scan-bar-animate {
+    animation: scan-bar-hide 1.5s 5s linear forwards;
+}
+
+.similar-animate {
+    animation: similar-show 1s 2s linear forwards;
+}
+
+.result-bar-animate {
+    animation: result-bar-show 1s 6.8s ease forwards;
+}
+
+.middle-bar-animate {
+    animation: middle-bar-show .5s 9s linear forwards, vs-rotate 1.5s 10s ease infinite;
+}
+
+.img-title-animate {
+    animation: img-title-show 1s 7.3s ease forwards;
+}
+
+.left-photo-animate {
+    animation: left-photo-show 1s 8s linear forwards, photo-scale 2s ease-out 10s infinite alternate;
+}
+
+.right-photo-animate {
+    animation: right-photo-show 1s 8s linear forwards, photo-scale 2s ease-out 12s infinite alternate;
+}
+
+.bottom-bar-animate {
+    animation: bottom-bar-show 1s 9.5s linear forwards;
+}
+
+/* 动画结束 */
+
+body {
+    background-image: url('../images/bg.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font: 14px 'Microsoft YaHei';
+    color: #fff;
+    overflow: auto;
+}
+
+.scan-bar {
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    width: 40%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.scan-bar > h2 {
+    margin-top: 4.5%;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.tips {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+.face-box {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.face-box > .face-img {
+    width: 430px;
+    height: 450px;
+}
+
+.face-box .scan-img {
+    position: absolute;
+    bottom: 0;
+    left: 4px;
+    right: 3px;
+    width: 423px;
+    height: 120px;
+}
+
+.face-box .similar {
+    /* display: none; */
+    position: absolute;
+    top: 20%;
+    left: 22%;
+    width: 250px;
+    height: 250px;
+    background: url('../images/the-same.png') no-repeat;
+    background-size: cover;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 250px;
+    opacity: 0;
+}
+
+.result-bar {
+    /* display: none; */
+    /* opacity: 0; */
+    height: 0;
+    background-image: url('../images/bg2.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    overflow: hidden;
+}
+
+.left-bar, .middle-bar, .right-bar {
+    display: inline-block;
+    margin-top: 2.5%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.middle-bar {
+    margin: -50% 1% 0 .3%;
+}
+
+.result-bar .img-title {
+    /* display: none; */
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 206px;
+    height: 82px;
+    background-size: 100% 100%;
+    opacity: 0;
+}
+
+.left-bar .img-title {
+    background-image: url('../images/pic-title1.png');
+}
+
+.right-bar .img-title {
+    background-image: url('../images/pic-title2.png');
+}
+
+.left-bar .photo-wrap {
+    position: relative;
+    left: -200%;
+}
+
+.right-bar .photo-wrap {
+    position: relative;
+    right: -200%;
+}
+
+.left-bar .photo-wrap, .right-bar .photo-wrap {
+    width: 275px;
+    height: 350px;
+    background: url(../images/pic-bg1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.left-bar .photo-wrap-in, .right-bar .photo-wrap-in {
+    width: 100%;
+    height: 100%;
+    background: url(../images/pic-bg2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.left-bar .photo-wrap-in > img, .right-bar .photo-wrap-in > img {
+    margin-left: 2px;
+    margin-top: 18px;
+    width: 89%;
+    height: 90%;
+    /* transform: scale(1.0); */
+    transition: all 1s ease;
+}
+
+.left-bar .photo-wrap-in > img:hover, .right-bar .photo-wrap-in > img:hover {
+    transform: scale(1.1);
+    transition: all 1s ease;
+}
+
+/* 照片匹配状态提示部分 */
+.bottom-bar {
+     /* display: none;  */
+    position: relative;
+    margin: 30px 15px 0;
+    padding: 0 135px;
+    height: 90px;
+    opacity: 0;
+}
+
+.bottom-bar .left-arrow {
+    left: 0;
+    background: url('../images/left.png') no-repeat;
+}
+
+.bottom-bar .statu-wrap {
+    padding: 0 150px;
+    height: 100%;
+    background: url(../images/center.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.bottom-bar .success {
+    width: auto;
+    height: 100%;
+    background: url('../images/success.png') no-repeat;
+    background-size: cover;
+}
+
+.bottom-bar .right-arrow {
+    right: 0;
+    background: url('../images/right.png') no-repeat;
+}
+
+.bottom-bar .left-arrow, .bottom-bar .right-arrow {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 160px;
+    background-size: 100% 100%;
+}
